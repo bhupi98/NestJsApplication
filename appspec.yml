@@ -2,14 +2,17 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/html
+    destination: /home/ubuntu/nest-demo
 hooks:
-  AfterInstall:
-    - location: scripts/install-dependencies.sh
+  BeforeInstall:
+    - location: scripts/codedeploy_before_install.sh
       timeout: 300
       runas: root
-
+  AfterInstall:
+    - location: scripts/codedeploy_after_install.sh
+      timeout: 300
+      runas: root
   ApplicationStart:
-    - location: scripts/start-application.sh
+    - location: scripts/codedeploy_application_start.sh
       timeout: 300
       runas: root
