@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /var/www/nest-app
-npm run start
+
+sudo servie nginx start

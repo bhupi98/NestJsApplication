@@ -1,3 +1,4 @@
 #!/bin/bash
-cd /var/www/nest-app
-npm install
+
+sudo apt-get update
+sudo apt-get install -y nginx

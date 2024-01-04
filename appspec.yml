@@ -2,11 +2,14 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/nest-app
+    destination: /var/www/html
 hooks:
-  BeforeInstall:
+  AfterInstall:
     - location: scripts/install-dependencies.sh
       timeout: 300
-  AfterInstall:
+      runas: root
+
+  ApplicationStart:
     - location: scripts/start-application.sh
       timeout: 300
+      runas: root
