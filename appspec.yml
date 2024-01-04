@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/nest-app
+hooks:
+  BeforeInstall:
+    - location: scripts/install-dependencies.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: scripts/start-application.sh
+      timeout: 300
+      runas: root
