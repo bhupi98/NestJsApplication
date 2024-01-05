@@ -9,6 +9,4 @@ export NVM_DIR="$HOME/.nvm"
 cd /home/ec2-user/nest-demo
 
 # Install Node.js dependencies and start the server
-npm install
-npm run build
 npm run start:prod
