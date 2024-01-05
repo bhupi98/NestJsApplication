@@ -31,7 +31,7 @@ echo "Starting the application..."
 # Example: npm start or node server.js
 
 # Replace the command below with the actual command to start your Nest.js application
-cd /path/to/your/nest-app
+cd /home/ec2-user/nest-demo
 npm install
 npm run start:prod
 
