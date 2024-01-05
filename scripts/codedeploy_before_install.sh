@@ -9,7 +9,7 @@ nvm install node
 sudo npm install pm2 -g
 
 #create our working directory if it doesnt exist
-DIR="/home/ubuntu/nest-demo"
+DIR="/home/ec2-user/nest-demo"
 if [ -d "$DIR" ]; then
   echo "${DIR} exists"
 else

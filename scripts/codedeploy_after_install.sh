@@ -1,7 +1,7 @@
 #!/bin/bash
-sudo chmod -R 777 /home/ubuntu/nest-demo
+sudo chmod -R 777 /home/ec2-user/nest-demo
 
-cd /home/ubuntu/nest-demo
+cd /home/ec2-user/nest-demo
 
 #add npm and node to path
 export NVM_DIR="$HOME/.nvm"	

@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/nest-demo
+    destination: /home/ec2-user/nest-demo
 hooks:
   BeforeInstall:
     - location: scripts/codedeploy_before_install.sh
