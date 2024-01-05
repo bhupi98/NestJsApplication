@@ -1,19 +1,37 @@
 #!/bin/bash
-# Stop all servers and start the server
 
 # Set up NVM environment
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # loads nvm bash_completion
 
-# Navigate to the application directory
+#!/bin/bash
+
+# Specify the port your application should use
+APP_PORT=9000
+
+# Check if the port is in use
+if sudo lsof -i :$APP_PORT; then
+  echo "Port $APP_PORT is in use. Stopping the process..."
+  
+  # Find the process ID (PID) using the port
+  PID=$(sudo lsof -t -i:$APP_PORT)
+
+  # Stop the process using the port
+  sudo kill -9 $PID
+  
+  echo "Process stopped successfully."
+else
+  echo "Port $APP_PORT is not in use."
+fi
+
+# Start your application
+echo "Starting the application..."
+# Add your command to start the application here, e.g., npm start
+# Example: npm start or node server.js
+
+# Replace the command below with the actual command to start your Nest.js application
 cd /home/ec2-user/nest-demo
+npm run start:prod
 
-# Install Node.js dependencies
-npm install
-
-# Build the Nest.js application
-npm run build
-
-# Start the Nest.js application with pm2
-~/.nvm/versions/node/$(nvm version)/bin/pm2 start dist/main.js
+echo "Application started successfully."
